@@ -5,18 +5,18 @@ def home_view(request, *args, **kwargs):
 
 
 def login_view(request, *args, **kwargs):
-    return render(request, 'home.html', {})
+    return render(request, 'login.html', {})
 
 
 def logout_view(request, *args, **kwargs):
-    return render(request, 'home.html', {})
+    return render(request, 'logout.html', {})
 
 
 def cadastro_view(request, *args, **kwargs):
-    return render(request, 'home.html', {})
+    return render(request, 'cadastro.html', {})
 
 def sobre_view(request, *args, **kwargs):
-    return render(request, 'home.html', {})
+    return render(request, 'sobre.html', {})
 
 def livros_view(request, *args, **kwargs):
-    return render(request, 'home.html', {})
+    return render(request, 'livros.html', {})
