@@ -1,6 +1,6 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
-from django.db.models.expressions import Exists
-from django.db.auth import User
+from django.contrib.auth.admin import User
 
 # Create your models here.
 class livro(models.Model):
@@ -13,8 +13,9 @@ class livro(models.Model):
     nome_do_livro        = models.TextField(blank=False, null=False)
     autores              = models.TextField(default='Desconhecido')
     situacao             = models.CharField(max_length=10, choices=situacao_choices, blank=False, null=False)
-    cadastro_em          = models.DateTimeField(auto_now_add=True)
-    cadastrador_do_livro = models.ForeignKey(User, blank=False, null=False)
-    if cadastrador_do_livro is Exists:
+    if ObjectDoesNotExist:
+        cadastro_em          = models.DateTimeField(auto_now_add=True)
+        cadastrador_do_livro = models.ForeignKey(User, on_delete=models.CASCADE, blank=False, null=False)
+    else:
         editado_em           = models.DateTimeField(auto_now=True)
-        editor_do_livro      = models.TextField(User, blank=False, null=False)
+        editor_do_livro      = models.ForeignKey(User, on_delete=models.CASCADE, blank=False, null=False)
