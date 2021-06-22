@@ -3,9 +3,15 @@
 {% block title %}Livros{% endblock %}
 
 {% block content %}
-    Livro
+    Livros
     <br>
-    Livro
-    <br>
-    Livro
+    {{Livros}}
 {% endblock %}
+
+<ul>
+{% for estante in livrinho %}
+    <li>
+        {{estante}}
+    </li>
+{% endfor %}
+</ul>

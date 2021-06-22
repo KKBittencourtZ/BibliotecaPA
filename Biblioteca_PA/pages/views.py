@@ -18,5 +18,3 @@ def cadastro_view(request, *args, **kwargs):
 def sobre_view(request, *args, **kwargs):
     return render(request, 'sobre.html', {})
 
-def livros_view(request, *args, **kwargs):
-    return render(request, 'livros.html', {})
